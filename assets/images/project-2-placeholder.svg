@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-label="Project 2 placeholder">
+  <rect width="800" height="420" fill="#dcfce7"/>
+  <rect x="80" y="70" width="640" height="280" rx="16" fill="#86efac"/>
+  <text x="400" y="230" text-anchor="middle" fill="#166534" font-family="Arial, Helvetica, sans-serif" font-size="42">
+    Project 2 (Hour of Code)
+  </text>
+</svg>

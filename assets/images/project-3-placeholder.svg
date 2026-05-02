@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420" role="img" aria-label="Project 3 placeholder">
+  <rect width="800" height="420" fill="#fef3c7"/>
+  <rect x="80" y="70" width="640" height="280" rx="16" fill="#fde68a"/>
+  <text x="400" y="230" text-anchor="middle" fill="#92400e" font-family="Arial, Helvetica, sans-serif" font-size="42">
+    Project 3 / Extra Project
+  </text>
+</svg>
