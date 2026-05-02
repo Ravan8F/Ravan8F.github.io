@@ -16,4 +16,10 @@ This repository contains my SITE 1101 Project 04 site. The layout and styling ar
 
 ## GitHub Pages
 
-Deploy from the repository root (`index.html` at root). After publishing, point the GitHub footer link to your **portfolio repository** URL if the rubric requires the repo link, not only your profile.
+Deploy from the repository root (`index.html` at root). This repo is set up as a **user site** (`username.github.io`): CSS/JS/images use **root-relative** URLs (e.g. `/assets/...`) so they resolve correctly on the live domain.
+
+- A **`.nojekyll`** file is included so GitHub Pages does not run Jekyll on your HTML (avoids odd processing of static files).
+- After you push, wait 1–2 minutes and hard-refresh the site (**Cmd+Shift+R**). If it still looks wrong, confirm Pages is building from the **`main`** branch and **root** (or `/docs` only if you moved files there).
+- If you ever host this as a **project site** (`username.github.io/repo-name/`), you must switch back to **relative** asset paths (no leading `/`) or add a proper `<base href="...">`.
+
+After publishing, point the GitHub footer link to your **portfolio repository** URL if the rubric requires the repo link, not only your profile.
