@@ -80,10 +80,10 @@
 				}, 100);
 			});
 
-	// Intro.
+	// Intro (only when template still has sidebar + #intro).
 		var $intro = $('#intro');
 
-		// Move to main on <=large, back to sidebar on >large.
+		if ($sidebar.length > 0 && $intro.length > 0) {
 			breakpoints.on('<=large', function() {
 				$intro.prependTo($main);
 			});
@@ -91,5 +91,6 @@
 			breakpoints.on('>large', function() {
 				$intro.prependTo($sidebar);
 			});
+		}
 
 })(jQuery);
