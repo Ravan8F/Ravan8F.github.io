@@ -157,12 +157,18 @@
 		addRandomTile();
 		render();
 		saveBestIfNeeded();
+		if (window.G2048Hooks && typeof window.G2048Hooks.onScoreChange === "function") {
+			window.G2048Hooks.onScoreChange(score);
+		}
 		if (!wonAlready && has2048()) {
 			wonAlready = true;
 			showToast("You reached 2048!");
 		}
 		if (!canMove()) {
 			showOverlay("Game over");
+			if (window.G2048Hooks && typeof window.G2048Hooks.onGameOver === "function") {
+				window.G2048Hooks.onGameOver(score);
+			}
 		}
 	}
 

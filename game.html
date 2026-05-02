@@ -100,7 +100,7 @@
 					<header>
 						<div class="title">
 							<h2><a href="/game.html">2048</a></h2>
-							<p>Interactive JavaScript game — merge tiles to reach 2048</p>
+							<p>Interactive JavaScript game — live leaderboard (Firebase) saves your best score by username</p>
 						</div>
 						<div class="meta">
 							<time class="published" datetime="2026-05-02">May 2, 2026</time>
@@ -110,35 +110,73 @@
 						</div>
 					</header>
 
-					<section class="g2048-wrap">
-						<div class="g2048-top">
-							<ul class="actions">
-								<li>
-									<button type="button" class="button" id="g2048-new">New game</button>
-								</li>
-							</ul>
-							<div class="g2048-scores">
-								<div class="g2048-scorebox">Score <span id="g2048-score">0</span></div>
-								<div class="g2048-scorebox">Best <span id="g2048-best">0</span></div>
-							</div>
-						</div>
+					<p class="g2048-playing-as-line">
+						Playing as: <strong id="g2048-playing-as">—</strong>
+						<button type="button" class="button small g2048-inline-btn" id="g2048-change-name">Change name</button>
+					</p>
 
-						<div class="g2048-board-outer">
-							<div class="g2048-grid" id="g2048-board" aria-label="2048 game board"></div>
-							<div class="g2048-overlay" id="g2048-overlay" role="dialog" aria-modal="true">
-								<h3 id="g2048-overlay-title">Game over</h3>
+					<div class="g2048-page-grid">
+						<section class="g2048-wrap">
+							<div class="g2048-top">
 								<ul class="actions">
-									<li><button type="button" class="button primary" id="g2048-try-again">Try again</button></li>
+									<li>
+										<button type="button" class="button" id="g2048-new">New game</button>
+									</li>
+									<li>
+										<button type="button" class="button" id="g2048-save-leaderboard">Save score</button>
+									</li>
 								</ul>
+								<div class="g2048-scores">
+									<div class="g2048-scorebox">Score <span id="g2048-score">0</span></div>
+									<div class="g2048-scorebox">Best <span id="g2048-best">0</span></div>
+								</div>
 							</div>
-						</div>
 
-						<p class="g2048-help">
-							Use <strong>arrow keys</strong> on a keyboard to slide tiles. On a phone or tablet,
-							<strong>swipe</strong> on the board. Identical numbers combine. Each move adds a new 2 or 4 tile.
-							Reach <strong>2048</strong> to win (you can keep playing).
-						</p>
-					</section>
+							<div class="g2048-board-outer">
+								<div class="g2048-grid" id="g2048-board" aria-label="2048 game board"></div>
+								<div class="g2048-overlay" id="g2048-overlay" role="dialog" aria-modal="true">
+									<h3 id="g2048-overlay-title">Game over</h3>
+									<ul class="actions">
+										<li><button type="button" class="button primary" id="g2048-try-again">Try again</button></li>
+									</ul>
+								</div>
+							</div>
+
+							<p class="g2048-help">
+								Use <strong>arrow keys</strong> (or <strong>swipe</strong> on mobile). Your score is sent to the
+								leaderboard automatically after moves (throttled) and when the game ends. Use
+								<strong>Save score</strong> to push your current score immediately.
+							</p>
+						</section>
+
+						<aside class="g2048-leaderboard" aria-label="Leaderboard">
+							<h3 class="g2048-lb-title">Leaderboard</h3>
+							<p id="g2048-lb-status" class="g2048-lb-status">Loading…</p>
+							<div class="g2048-table-wrap">
+								<table class="g2048-table">
+									<thead>
+										<tr>
+											<th>#</th>
+											<th>Player</th>
+											<th>Score</th>
+										</tr>
+									</thead>
+									<tbody id="g2048-lb-tbody"></tbody>
+								</table>
+							</div>
+						</aside>
+					</div>
+
+					<div id="g2048-name-modal" class="g2048-modal" role="dialog" aria-modal="true" aria-labelledby="g2048-modal-title">
+						<div class="g2048-modal-inner">
+							<h3 id="g2048-modal-title">Your name</h3>
+							<p>Enter a name for the live leaderboard. You can change it later.</p>
+							<input type="text" id="g2048-username-input" maxlength="32" placeholder="e.g. Ravan" autocomplete="nickname" />
+							<ul class="actions">
+								<li><button type="button" class="button primary" id="g2048-username-save">Play</button></li>
+							</ul>
+						</div>
+					</div>
 
 					<footer>
 						<ul class="stats">
@@ -174,11 +212,15 @@
 			</section>
 		</div>
 
+		<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
+		<script src="/assets/js/firebase-config.js"></script>
 		<script src="/assets/js/jquery.min.js"></script>
 		<script src="/assets/js/browser.min.js"></script>
 		<script src="/assets/js/breakpoints.min.js"></script>
 		<script src="/assets/js/util.js"></script>
 		<script src="/assets/js/main.js"></script>
 		<script src="/assets/js/game-2048.js"></script>
+		<script src="/assets/js/leaderboard.js"></script>
 	</body>
 </html>
