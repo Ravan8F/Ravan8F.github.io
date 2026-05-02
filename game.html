@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <!--
 	Future Imperfect by HTML5 UP — html5up.net | @ajlkn — CCA 3.0
-	Content: Ravan Fataliyev — SITE 1101
+	2048 game — JavaScript (SITE 1101 bonus)
 -->
 <html lang="en">
 	<head>
-		<title>Ravan Fataliyev | About</title>
+		<title>Ravan Fataliyev | 2048</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
@@ -15,6 +15,7 @@
 		/>
 		<link rel="stylesheet" href="/assets/css/main.css" />
 		<link rel="stylesheet" href="/assets/css/site.css" />
+		<link rel="stylesheet" href="/assets/css/game-2048.css" />
 	</head>
 	<body class="single is-preload">
 		<div id="wrapper">
@@ -98,8 +99,8 @@
 				<article class="post">
 					<header>
 						<div class="title">
-							<h2><a href="/about.html">About me</a></h2>
-							<p>Background, qualifications, and activities</p>
+							<h2><a href="/game.html">2048</a></h2>
+							<p>Interactive JavaScript game — merge tiles to reach 2048</p>
 						</div>
 						<div class="meta">
 							<time class="published" datetime="2026-05-02">May 2, 2026</time>
@@ -108,37 +109,46 @@
 							/></a>
 						</div>
 					</header>
-					<span class="image featured"><img src="/assets/images/photo-ravan.png" alt="Ravan Fataliyev" /></span>
-					<p>
-						My name is Ravan Fataliyev. I am 17 years old. I am studying electrical and electronics engineering
-						at ADA University. I like turning theory into working hardware—from breadboard circuits and logic
-						gates to programmable Lego robots.
-					</p>
-					<p>
-						I am actively learning <strong>C++</strong> and <strong>Python</strong> alongside my engineering
-						coursework. I also work extensively with <strong>Arduino</strong> and have completed
-						<strong>more than five</strong> Arduino-based projects (sensors, automation, and embedded control).
-					</p>
-					<h3>Activities</h3>
-					<p>
-						Hands-on electronics and coding: Arduino builds, programming practice in C++ and Python, and related
-						engineering coursework and personal projects.
-					</p>
-					<h3>Snapshot</h3>
-					<ul>
-						<li><strong>Age:</strong> 17</li>
-						<li><strong>University:</strong> ADA University</li>
-						<li><strong>Program:</strong> Electrical &amp; electronics engineering</li>
-						<li><strong>Languages &amp; tools:</strong> Learning C++ and Python; Arduino (5+ projects)</li>
-						<li><strong>Portfolio:</strong> SITE 1101 — Future Imperfect template (HTML5 UP)</li>
-					</ul>
+
+					<section class="g2048-wrap">
+						<div class="g2048-top">
+							<ul class="actions">
+								<li>
+									<button type="button" class="button" id="g2048-new">New game</button>
+								</li>
+							</ul>
+							<div class="g2048-scores">
+								<div class="g2048-scorebox">Score <span id="g2048-score">0</span></div>
+								<div class="g2048-scorebox">Best <span id="g2048-best">0</span></div>
+							</div>
+						</div>
+
+						<div class="g2048-board-outer">
+							<div class="g2048-grid" id="g2048-board" aria-label="2048 game board"></div>
+							<div class="g2048-overlay" id="g2048-overlay" role="dialog" aria-modal="true">
+								<h3 id="g2048-overlay-title">Game over</h3>
+								<ul class="actions">
+									<li><button type="button" class="button primary" id="g2048-try-again">Try again</button></li>
+								</ul>
+							</div>
+						</div>
+
+						<p class="g2048-help">
+							Use <strong>arrow keys</strong> on a keyboard to slide tiles. On a phone or tablet,
+							<strong>swipe</strong> on the board. Identical numbers combine. Each move adds a new 2 or 4 tile.
+							Reach <strong>2048</strong> to win (you can keep playing).
+						</p>
+					</section>
+
 					<footer>
 						<ul class="stats">
-							<li><a href="/projects.html">Projects</a></li>
+							<li><a href="/projects.html">SITE 1101</a></li>
 						</ul>
 					</footer>
 				</article>
 			</div>
+
+			<div id="g2048-toast" class="g2048-toast" role="status" aria-live="polite"></div>
 
 			<section id="footer">
 				<ul class="icons">
@@ -169,5 +179,6 @@
 		<script src="/assets/js/breakpoints.min.js"></script>
 		<script src="/assets/js/util.js"></script>
 		<script src="/assets/js/main.js"></script>
+		<script src="/assets/js/game-2048.js"></script>
 	</body>
 </html>

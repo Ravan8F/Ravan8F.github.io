@@ -1,0 +1,165 @@
+/* 2048 game — SITE 1101 bonus */
+
+.g2048-wrap {
+	max-width: 28em;
+	margin: 0 auto 2em;
+}
+
+.g2048-top {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1em;
+	margin-bottom: 1.25em;
+}
+
+.g2048-scores {
+	display: flex;
+	gap: 0.75em;
+}
+
+.g2048-scorebox {
+	background: #bbada0;
+	color: #f9f6f2;
+	padding: 0.35em 0.75em;
+	border-radius: 4px;
+	font-family: "Source Sans Pro", Helvetica, sans-serif;
+	font-size: 0.9em;
+	text-align: center;
+	min-width: 4.5em;
+}
+
+.g2048-scorebox span {
+	display: block;
+	font-weight: 700;
+	font-size: 1.15em;
+}
+
+.g2048-board-outer {
+	background: #bbada0;
+	padding: 0.5em;
+	border-radius: 6px;
+	position: relative;
+	touch-action: none;
+	user-select: none;
+}
+
+.g2048-grid {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	grid-template-rows: repeat(4, 1fr);
+	gap: 0.5em;
+	aspect-ratio: 1;
+	max-width: 100%;
+}
+
+.g2048-cell {
+	background: rgba(238, 228, 218, 0.35);
+	border-radius: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: 700;
+	font-size: clamp(1rem, 4vw, 1.75rem);
+	font-family: "Raleway", "Source Sans Pro", Helvetica, sans-serif;
+	color: #776e65;
+}
+
+.g2048-cell[data-value="2"] {
+	background: #eee4da;
+}
+.g2048-cell[data-value="4"] {
+	background: #ede0c8;
+}
+.g2048-cell[data-value="8"] {
+	background: #f2b179;
+	color: #f9f6f2;
+}
+.g2048-cell[data-value="16"] {
+	background: #f59563;
+	color: #f9f6f2;
+}
+.g2048-cell[data-value="32"] {
+	background: #f67c5f;
+	color: #f9f6f2;
+}
+.g2048-cell[data-value="64"] {
+	background: #f65e3b;
+	color: #f9f6f2;
+}
+.g2048-cell[data-value="128"],
+.g2048-cell[data-value="256"],
+.g2048-cell[data-value="512"] {
+	background: #edcf72;
+	color: #f9f6f2;
+	font-size: clamp(0.9rem, 3.5vw, 1.5rem);
+}
+.g2048-cell[data-value="1024"],
+.g2048-cell[data-value="2048"],
+.g2048-cell[data-value="4096"],
+.g2048-cell[data-value="8192"] {
+	background: #edc22e;
+	color: #f9f6f2;
+	font-size: clamp(0.75rem, 3vw, 1.35rem);
+}
+
+.g2048-cell:empty::before {
+	content: "";
+}
+
+.g2048-help {
+	font-size: 0.95em;
+	color: #646464;
+	margin-top: 1em;
+}
+
+.g2048-overlay {
+	position: absolute;
+	inset: 0.5em;
+	background: rgba(238, 228, 218, 0.92);
+	border-radius: 4px;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 1em;
+	text-align: center;
+	padding: 1em;
+	z-index: 2;
+}
+
+.g2048-overlay.is-visible {
+	display: flex;
+}
+
+.g2048-overlay h3 {
+	margin: 0;
+	font-size: 1.5em;
+}
+
+.g2048-toast {
+	position: fixed;
+	bottom: 1.5em;
+	left: 50%;
+	transform: translateX(-50%);
+	background: #edc22e;
+	color: #f9f6f2;
+	padding: 0.6em 1.2em;
+	border-radius: 4px;
+	font-weight: 700;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.3s;
+	z-index: 100;
+}
+
+.g2048-toast.is-visible {
+	opacity: 1;
+}
+
+@media screen and (max-width: 480px) {
+	.g2048-cell {
+		font-size: clamp(0.85rem, 5vw, 1.25rem);
+	}
+}
