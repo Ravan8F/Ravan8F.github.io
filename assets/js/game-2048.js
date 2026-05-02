@@ -12,6 +12,8 @@
 	var overlayTitleEl;
 	var toastEl;
 
+	var LS_SAVE = "g2048-save";
+
 	function loadBest() {
 		try {
 			var v = localStorage.getItem("g2048-best");
@@ -30,6 +32,59 @@
 
 	function displayBest() {
 		bestEl.textContent = String(Math.max(loadBest(), score));
+	}
+
+	function validCell(v) {
+		if (typeof v !== "number" || v !== (v | 0) || v < 0) return false;
+		if (v > 1048576) return false;
+		if (v === 0) return true;
+		return (v & (v - 1)) === 0;
+	}
+
+	function saveProgress() {
+		if (!grid || !boardEl || !overlayEl) return;
+		var gameOver = overlayEl.classList.contains("is-visible");
+		try {
+			localStorage.setItem(
+				LS_SAVE,
+				JSON.stringify({
+					grid: grid,
+					score: score,
+					won: wonAlready,
+					gameOver: gameOver,
+				})
+			);
+		} catch (e) {}
+	}
+
+	function tryLoadSaved() {
+		try {
+			var raw = localStorage.getItem(LS_SAVE);
+			if (!raw) return false;
+			var d = JSON.parse(raw);
+			if (!d || !d.grid || !Array.isArray(d.grid) || d.grid.length !== SIZE) return false;
+			var copy = [];
+			for (var r = 0; r < SIZE; r++) {
+				if (!Array.isArray(d.grid[r]) || d.grid[r].length !== SIZE) return false;
+				copy[r] = [];
+				for (var c = 0; c < SIZE; c++) {
+					var v = d.grid[r][c];
+					if (!validCell(v)) return false;
+					copy[r][c] = v;
+				}
+			}
+			grid = copy;
+			score = typeof d.score === "number" && d.score >= 0 ? d.score : 0;
+			wonAlready = !!d.won;
+			render();
+			saveBestIfNeeded();
+			if (!canMove()) {
+				showOverlay("Game over");
+			}
+			return true;
+		} catch (e) {
+			return false;
+		}
 	}
 
 	function transpose(g) {
@@ -133,15 +188,18 @@
 		}
 		scoreEl.textContent = String(score);
 		displayBest();
+		saveProgress();
 	}
 
 	function showOverlay(title) {
 		overlayTitleEl.textContent = title;
 		overlayEl.classList.add("is-visible");
+		saveProgress();
 	}
 
 	function hideOverlay() {
 		overlayEl.classList.remove("is-visible");
+		saveProgress();
 	}
 
 	function showToast(msg) {
@@ -173,6 +231,9 @@
 	}
 
 	function newGame() {
+		try {
+			localStorage.removeItem(LS_SAVE);
+		} catch (e) {}
 		grid = [];
 		for (var r = 0; r < SIZE; r++) {
 			grid[r] = [];
@@ -258,7 +319,15 @@
 		});
 		document.addEventListener("keydown", onKey);
 		touchSetup();
-		newGame();
+
+		window.g2048SaveProgress = function () {
+			saveProgress();
+			showToast("Saved on this device");
+		};
+
+		if (!tryLoadSaved()) {
+			newGame();
+		}
 	}
 
 	if (document.readyState === "loading") {

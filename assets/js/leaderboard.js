@@ -215,21 +215,76 @@
 		if (!enabled) {
 			hideModal();
 			if (playingAsLine) playingAsLine.style.display = "none";
-			if (saveScoreBtn) saveScoreBtn.style.display = "none";
+			var lbTitle = document.querySelector(".g2048-lb-title");
+			if (lbTitle) lbTitle.textContent = "This device (no cloud)";
+
 			if (statusEl) {
 				statusEl.textContent =
-					"Offline: add real Firebase keys in assets/js/firebase-config.js to enable the live leaderboard. The game works without it.";
+					"Your board and score save in this browser after each move. For a global leaderboard vs other players, add Firebase keys in assets/js/firebase-config.js.";
 				statusEl.classList.add("is-offline");
 			}
+
+			function readLocalBest() {
+				try {
+					var v = localStorage.getItem("g2048-best");
+					return v ? parseInt(v, 10) || 0 : 0;
+				} catch (e) {
+					return 0;
+				}
+			}
+
+			function readLocalSavedScore() {
+				try {
+					var raw = localStorage.getItem("g2048-save");
+					if (!raw) return null;
+					var d = JSON.parse(raw);
+					return typeof d.score === "number" ? d.score : null;
+				} catch (e) {
+					return null;
+				}
+			}
+
 			if (tbody) {
-				tbody.innerHTML =
-					'<tr><td colspan="3">No live data until Firebase is configured.</td></tr>';
+				tbody.innerHTML = "";
+				var tr = document.createElement("tr");
+				var td = document.createElement("td");
+				td.colSpan = 3;
+				var best = readLocalBest();
+				var cur = readLocalSavedScore();
+				td.innerHTML =
+					"<strong>Best score (this browser):</strong> " +
+					best +
+					(cur !== null ? "<br><strong>Last saved game score:</strong> " + cur : "") +
+					"<br><span style=\"font-weight:400\">Close the tab and return later—your game restores automatically.</span>";
+				tr.appendChild(td);
+				tbody.appendChild(tr);
+			}
+
+			var thead = tbody && tbody.closest("table") && tbody.closest("table").querySelector("thead");
+			if (thead) thead.style.display = "none";
+
+			if (saveScoreBtn) {
+				saveScoreBtn.style.display = "";
+				saveScoreBtn.textContent = "Save now (this device)";
+				saveScoreBtn.addEventListener("click", function () {
+					if (typeof window.g2048SaveProgress === "function") {
+						window.g2048SaveProgress();
+					}
+				});
 			}
 			return;
 		}
 
+		var theadOn = tbody && tbody.closest("table") && tbody.closest("table").querySelector("thead");
+		if (theadOn) theadOn.style.display = "";
+		var lbTitleOn = document.querySelector(".g2048-lb-title");
+		if (lbTitleOn) lbTitleOn.textContent = "Leaderboard";
+
 		if (playingAsLine) playingAsLine.style.display = "";
-		if (saveScoreBtn) saveScoreBtn.style.display = "";
+		if (saveScoreBtn) {
+			saveScoreBtn.style.display = "";
+			saveScoreBtn.textContent = "Save score";
+		}
 
 		bindUsernameUiWhenLive();
 
