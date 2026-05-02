@@ -1,104 +1,180 @@
-<!doctype html>
+<!DOCTYPE HTML>
+<!--
+	Dimension by HTML5 UP — html5up.net | @ajlkn
+	CCA 3.0 — html5up.net/license
+	Content: Ravan Fataliyev — SITE 1101 portfolio
+-->
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home | Ravan Fataliyev</title>
-    <meta
-      name="description"
-      content="Personal portfolio website home page for SITE 1101."
-    />
-    <link rel="stylesheet" href="css/styles.css" />
-    <script defer src="js/main.js"></script>
-  </head>
-  <body>
-    <a class="skip-link" href="#main-content">Skip to content</a>
-    <header class="site-header">
-      <div class="container nav-wrap">
-        <a class="brand" href="index.html">Ravan Fataliyev</a>
-        <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">
-          Menu
-        </button>
-        <nav id="site-nav" class="site-nav" aria-label="Primary Navigation">
-          <a class="active" href="index.html">Home</a>
-          <a href="about.html">About</a>
-          <a href="projects.html">Projects</a>
-        </nav>
-      </div>
-    </header>
+	<head>
+		<title>Ravan Fataliyev | SITE 1101 Portfolio</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta
+			name="description"
+			content="Portfolio of Ravan Fataliyev — electrical and electronics engineering student at ADA University."
+		/>
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-preload">
+		<div id="wrapper">
+			<header id="header">
+				<div class="logo">
+					<span class="icon fa-gem"></span>
+				</div>
+				<div class="content">
+					<div class="inner">
+						<h1>Ravan Fataliyev</h1>
+						<p>
+							Electrical &amp; electronics engineering student at ADA University.<br />
+							SITE 1101 — personal portfolio &amp; course projects.
+						</p>
+					</div>
+				</div>
+				<nav>
+					<ul>
+						<li><a href="#intro">Home</a></li>
+						<li><a href="#projects">Projects</a></li>
+						<li><a href="#about">About</a></li>
+						<li><a href="#connect">Connect</a></li>
+					</ul>
+				</nav>
+			</header>
 
-    <main id="main-content" class="container stack">
-      <section class="hero">
-        <img
-          class="profile-photo"
-          src="assets/images/photo-ravan.png"
-          alt="Ravan Fataliyev"
-        />
-        <div>
-          <p class="eyebrow">SITE 1101 Portfolio</p>
-          <h1>Hi, I am Ravan</h1>
-          <p>
-            My name is Ravan. I am 17 years old. I am studying electrical and
-            electronics engineering in ADA University.
-          </p>
-          <div class="button-row">
-            <a class="button" href="projects.html">View Projects</a>
-            <a class="button button-ghost" href="about.html">Learn More</a>
-          </div>
-        </div>
-      </section>
+			<div id="main">
+				<article id="intro">
+					<h2 class="major">Home</h2>
+					<span class="image main"><img src="assets/images/photo-ravan.png" alt="Ravan Fataliyev" /></span>
+					<p>
+						Hi, I am Ravan. I am 17 years old and I study electrical and electronics engineering at ADA
+						University. This site summarizes who I am and showcases my coursework and hands-on projects.
+					</p>
+					<p>
+						Explore my <a href="#projects">projects</a> or read more <a href="#about">about my background</a>.
+					</p>
+				</article>
 
-      <section class="section-card">
-        <p class="eyebrow">Quick Highlights</p>
-        <h2>What This Portfolio Shows</h2>
-        <div class="highlight-grid">
-          <article class="highlight h-indigo">
-            <h3>Engineering Focus</h3>
-            <p>Electrical and electronics learning journey at ADA University.</p>
-          </article>
-          <article class="highlight h-cyan">
-            <h3>Hands-on Projects</h3>
-            <p>Real course activities including robotics and Hour of Code.</p>
-          </article>
-          <article class="highlight h-amber">
-            <h3>Growth Mindset</h3>
-            <p>Continuous improvement in problem-solving and coding skills.</p>
-          </article>
-        </div>
-      </section>
+				<article id="projects">
+					<h2 class="major">Projects</h2>
+					<p>Selected SITE 1101 and related work — each entry includes a photo and, where available, a demo video.</p>
 
-      <section class="section-card">
-        <p class="eyebrow">Skills Snapshot</p>
-        <h2>Current Technical Areas</h2>
-        <div class="tag-row">
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">Git & GitHub</span>
-          <span class="tag">Lego Robotics</span>
-          <span class="tag">Engineering Basics</span>
-        </div>
-      </section>
-    </main>
+					<h3 class="major">Project 1 — Lego robots</h3>
+					<span class="image fit"><img src="assets/images/photo-lego-robot.png" alt="Lego Mindstorms EV3 robot" /></span>
+					<p>
+						Design and demonstration of a Lego Mindstorms EV3 robot, including structure, motors, sensors, and
+						programming on the intelligent brick.
+					</p>
+					<ul class="actions">
+						<li>
+							<a
+								href="https://youtu.be/64ufRlgvUzI?si=1s2HIragOpwptXXR"
+								class="button primary"
+								target="_blank"
+								rel="noopener noreferrer"
+								>Watch video</a
+							>
+						</li>
+					</ul>
 
-    <footer class="site-footer">
-      <div class="container footer-wrap">
-        <p>© <span id="year"></span> Ravan Fataliyev</p>
-        <div class="social-links" aria-label="Profile links">
-          <a href="https://github.com/Ravan8F" target="_blank" rel="noreferrer">
-            <span class="icon-badge" aria-hidden="true">GH</span>
-            <span>GitHub Repo</span>
-          </a>
-          <a
-            href="https://www.codecademy.com/profiles/rfataliyev26388"
-            target="_blank"
-            rel="noreferrer"
-          >
-            <span class="icon-badge" aria-hidden="true">CA</span>
-            <span>Codecademy</span>
-          </a>
-        </div>
-      </div>
-    </footer>
-  </body>
+					<h3 class="major">Project 2 — Hour of Code</h3>
+					<span class="image fit"><img src="assets/images/photo-hour-of-code.png" alt="Hour of Code certificates with classmates" /></span>
+					<p>
+						Participation in CS Education Week / Hour of Code: completing guided coding activities and
+						celebrating with classmates and certificates.
+					</p>
+					<ul class="actions">
+						<li>
+							<a
+								href="https://youtu.be/mvglWD26qWo?si=EM3rPc9aZqW49sWb"
+								class="button primary"
+								target="_blank"
+								rel="noopener noreferrer"
+								>Watch video</a
+							>
+						</li>
+					</ul>
+
+					<h3 class="major">Project 3 — Logic gates lab</h3>
+					<span class="image fit"><img src="assets/images/photo-logic-gates.png" alt="Breadboard logic circuit with LED result" /></span>
+					<p>
+						Hands-on digital logic on a breadboard: wiring, testing, and verifying behavior — including a
+						successful output (LED) on the bench.
+					</p>
+				</article>
+
+				<article id="about">
+					<h2 class="major">About</h2>
+					<p>
+						My name is Ravan Fataliyev. I am 17 years old. I am studying electrical and electronics engineering
+						at ADA University. I enjoy turning theory into working circuits and systems, from breadboards to
+						programmable robots.
+					</p>
+					<h3 class="major">Activities</h3>
+					<p>
+						Additional clubs, competitions, and outside-class activities will be listed here as you finalize
+						your submission text.
+					</p>
+					<h3 class="major">Snapshot</h3>
+					<ul>
+						<li><strong>Age:</strong> 17</li>
+						<li><strong>University:</strong> ADA University</li>
+						<li><strong>Focus:</strong> Electrical &amp; electronics engineering</li>
+						<li><strong>Featured projects:</strong> Lego robotics, Hour of Code, logic gates lab</li>
+					</ul>
+					<h3 class="major">Progress</h3>
+					<ul>
+						<li>Built foundations in information systems and web technologies.</li>
+						<li>Completed hands-on robotics and Hour of Code activities.</li>
+						<li>Published this portfolio using HTML5 UP &ldquo;Dimension&rdquo; as the visual design base.</li>
+					</ul>
+				</article>
+
+				<article id="connect">
+					<h2 class="major">Connect</h2>
+					<p>
+						Find me on GitHub and Codecademy. When your portfolio repository is public on GitHub, update the
+						GitHub link below to that repository URL if your instructor requires the repo link specifically.
+					</p>
+					<ul class="icons">
+						<li>
+							<a href="https://github.com/Ravan8F" class="icon brands fa-github" target="_blank" rel="noopener noreferrer"
+								><span class="label">GitHub</span></a
+							>
+						</li>
+						<li>
+							<a
+								href="https://www.codecademy.com/profiles/rfataliyev26388"
+								class="icon solid fa-laptop-code"
+								target="_blank"
+								rel="noopener noreferrer"
+								><span class="label">Codecademy</span></a
+							>
+						</li>
+					</ul>
+					<p>
+						Template design:
+						<a href="https://html5up.net/dimension" target="_blank" rel="noopener noreferrer">Dimension</a>
+						by
+						<a href="https://html5up.net" target="_blank" rel="noopener noreferrer">HTML5 UP</a>
+						(CCA 3.0).
+					</p>
+				</article>
+			</div>
+
+			<footer id="footer">
+				<p class="copyright">
+					&copy; Ravan Fataliyev. Design:
+					<a href="https://html5up.net/dimension" target="_blank" rel="noopener noreferrer">HTML5 UP</a>.
+				</p>
+			</footer>
+		</div>
+
+		<div id="bg"></div>
+
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+	</body>
 </html>

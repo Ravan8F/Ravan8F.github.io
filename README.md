@@ -1,39 +1,27 @@
 # SITE 1101 - Personal Portfolio Website
 
 This repository contains my individual SITE 1101 Project 04 website.  
-The site is built with plain HTML, CSS, and JavaScript, and is structured for GitHub Pages hosting.
+The visual design is based on **Dimension** by [HTML5 UP](https://html5up.net/dimension) (CCA 3.0 license — see template footer in `index.html`).
 
 ## Pages
 
-- `index.html` - Home page with profile and summary
-- `about.html` - Background, qualifications, and activities
-- `projects.html` - Required project entries and screenshots
+- **`index.html`** — Full site: home intro, projects, about, and connect (GitHub / Codecademy). Uses Dimension’s overlay “articles” for each section.
+- **`about.html`** — Redirects to `index.html#about` (separate URL for assignments that expect an About page).
+- **`projects.html`** — Redirects to `index.html#projects`.
 
-## Project Structure
+## Project structure
 
-- `css/styles.css` - shared responsive styles
-- `js/main.js` - mobile navigation and footer year
-- `assets/images/` - profile and project placeholder images
+- `assets/css/`, `assets/js/`, `assets/webfonts/` — Dimension template assets
+- `assets/images/` — Profile and project photos
+- `images/` — Dimension background assets (`bg.jpg`, `overlay.png`)
 
 ## Deployment (GitHub Pages)
 
 1. Push this repository to your public GitHub account.
-2. Go to repository **Settings > Pages**.
-3. Under **Build and deployment**, select:
-   - Source: **Deploy from a branch**
-   - Branch: **main** (or your default branch), folder: **/ (root)**
-4. Save and wait for deployment.
+2. Repository **Settings → Pages** → Deploy from branch **main** (or default), folder **/** (root).
+3. Live URL: `https://<username>.github.io/<repo>/` or user site root if configured.
 
-Your site will be available at:
+## Submission notes
 
-- `https://YOUR_USERNAME.github.io/`
-- or `https://YOUR_USERNAME.github.io/REPOSITORY_NAME/` for project sites
-
-## Customize Before Submission
-
-- Replace `Your Name` text on each page.
-- Update GitHub and Codecademy links in footer.
-- Replace placeholder images in `assets/images/`.
-- Fill in personal content and real project details.
-- Keep committing progress with clear commit messages.
-
+- Update the GitHub link in **Connect** to your **portfolio repository** URL if the rubric requires the repo link (not only your profile).
+- Fill in the **Activities** paragraph on the About article when your text is final.
