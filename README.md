@@ -1,27 +1,19 @@
 # SITE 1101 - Personal Portfolio Website
 
-This repository contains my individual SITE 1101 Project 04 website.  
-The visual design is based on **Dimension** by [HTML5 UP](https://html5up.net/dimension) (CCA 3.0 license — see template footer in `index.html`).
+This repository contains my SITE 1101 Project 04 site. The layout and styling are based on **Future Imperfect** by [HTML5 UP](https://html5up.net/future-imperfect) (CCA 3.0 — attribution in page footers).
 
 ## Pages
 
-- **`index.html`** — Full site: home intro, projects, about, and connect (GitHub / Codecademy). Uses Dimension’s overlay “articles” for each section.
-- **`about.html`** — Redirects to `index.html#about` (separate URL for assignments that expect an About page).
-- **`projects.html`** — Redirects to `index.html#projects`.
+- **`index.html`** — Home: profile photo, introduction, sidebar with project mini-posts, GitHub & Codecademy icons in the footer block.
+- **`about.html`** — About: background, activities placeholder, snapshot, progress (`body` uses the template’s `single` layout).
+- **`projects.html`** — Projects: Project 1 (Lego), Project 2 (Hour of Code), Project 3 (logic gates), each with image, description, and video link where applicable. Anchors: `#lego`, `#hour-of-code`, `#gates`.
 
-## Project structure
+## Assets
 
-- `assets/css/`, `assets/js/`, `assets/webfonts/` — Dimension template assets
-- `assets/images/` — Profile and project photos
-- `images/` — Dimension background assets (`bg.jpg`, `overlay.png`)
+- **`assets/css/`**, **`assets/js/`**, **`assets/webfonts/`** — Future Imperfect template assets.
+- **`assets/images/`** — Your portfolio photos (PNG).
+- **`images/`** — Stock images bundled with the template (e.g. `logo.jpg`, `avatar.jpg`, `pic01.jpg` …) if you want to use them elsewhere.
 
-## Deployment (GitHub Pages)
+## GitHub Pages
 
-1. Push this repository to your public GitHub account.
-2. Repository **Settings → Pages** → Deploy from branch **main** (or default), folder **/** (root).
-3. Live URL: `https://<username>.github.io/<repo>/` or user site root if configured.
-
-## Submission notes
-
-- Update the GitHub link in **Connect** to your **portfolio repository** URL if the rubric requires the repo link (not only your profile).
-- Fill in the **Activities** paragraph on the About article when your text is final.
+Deploy from the repository root (`index.html` at root). After publishing, point the GitHub footer link to your **portfolio repository** URL if the rubric requires the repo link, not only your profile.
