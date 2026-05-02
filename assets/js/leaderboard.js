@@ -157,13 +157,9 @@
 		if (modal) modal.classList.remove("is-visible");
 	}
 
-	function bindUsernameUi() {
-		modal = document.getElementById("g2048-name-modal");
-		input = document.getElementById("g2048-username-input");
+	function bindUsernameUiWhenLive() {
 		var saveBtn = document.getElementById("g2048-username-save");
 		var changeBtn = document.getElementById("g2048-change-name");
-		statusEl = document.getElementById("g2048-lb-status");
-		tbody = document.getElementById("g2048-lb-tbody");
 
 		if (changeBtn) {
 			changeBtn.addEventListener("click", function () {
@@ -207,18 +203,35 @@
 	}
 
 	function init() {
-		bindUsernameUi();
+		modal = document.getElementById("g2048-name-modal");
+		input = document.getElementById("g2048-username-input");
+		statusEl = document.getElementById("g2048-lb-status");
+		tbody = document.getElementById("g2048-lb-tbody");
+		var playingAsLine = document.getElementById("g2048-playing-as-line");
+		var saveScoreBtn = document.getElementById("g2048-save-leaderboard");
+
 		enabled = initFirebase();
 
 		if (!enabled) {
+			hideModal();
+			if (playingAsLine) playingAsLine.style.display = "none";
+			if (saveScoreBtn) saveScoreBtn.style.display = "none";
 			if (statusEl) {
 				statusEl.textContent =
-					"Offline mode: add your Firebase keys in assets/js/firebase-config.js for a live global leaderboard.";
+					"Offline: add real Firebase keys in assets/js/firebase-config.js to enable the live leaderboard. The game works without it.";
 				statusEl.classList.add("is-offline");
 			}
-			renderRows([]);
+			if (tbody) {
+				tbody.innerHTML =
+					'<tr><td colspan="3">No live data until Firebase is configured.</td></tr>';
+			}
 			return;
 		}
+
+		if (playingAsLine) playingAsLine.style.display = "";
+		if (saveScoreBtn) saveScoreBtn.style.display = "";
+
+		bindUsernameUiWhenLive();
 
 		listenLeaderboard();
 

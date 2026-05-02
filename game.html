@@ -13,20 +13,20 @@
 			rel="stylesheet"
 			href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Raleway:400,800,900"
 		/>
-		<link rel="stylesheet" href="/assets/css/main.css" />
-		<link rel="stylesheet" href="/assets/css/site.css" />
-		<link rel="stylesheet" href="/assets/css/game-2048.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/site.css" />
+		<link rel="stylesheet" href="assets/css/game-2048.css" />
 	</head>
 	<body class="single is-preload">
 		<div id="wrapper">
 			<header id="header">
-				<h1><a href="/">Ravan Fataliyev</a></h1>
+				<h1><a href="index.html">Ravan Fataliyev</a></h1>
 				<nav class="links">
 					<ul>
-						<li><a href="/">Home</a></li>
-						<li><a href="/about.html">About</a></li>
-						<li><a href="/projects.html">Projects</a></li>
-						<li><a href="/game.html">2048</a></li>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="about.html">About</a></li>
+						<li><a href="projects.html">Projects</a></li>
+						<li><a href="game.html">2048</a></li>
 					</ul>
 				</nav>
 				<nav class="main">
@@ -53,25 +53,25 @@
 				<section>
 					<ul class="links">
 						<li>
-							<a href="/">
+							<a href="index.html">
 								<h3>Home</h3>
 								<p>Profile and introduction</p>
 							</a>
 						</li>
 						<li>
-							<a href="/about.html">
+							<a href="about.html">
 								<h3>About</h3>
 								<p>Background and activities</p>
 							</a>
 						</li>
 						<li>
-							<a href="/projects.html">
+							<a href="projects.html">
 								<h3>Projects</h3>
 								<p>Course work and media</p>
 							</a>
 						</li>
 						<li>
-							<a href="/game.html">
+							<a href="game.html">
 								<h3>2048</h3>
 								<p>JavaScript puzzle game</p>
 							</a>
@@ -99,18 +99,18 @@
 				<article class="post">
 					<header>
 						<div class="title">
-							<h2><a href="/game.html">2048</a></h2>
-							<p>Interactive JavaScript game — live leaderboard (Firebase) saves your best score by username</p>
+							<h2><a href="game.html">2048</a></h2>
+							<p>Interactive JavaScript game — merge tiles to reach 2048</p>
 						</div>
 						<div class="meta">
 							<time class="published" datetime="2026-05-02">May 2, 2026</time>
-							<a href="/about.html" class="author"
-								><span class="name">Ravan Fataliyev</span><img src="/assets/images/photo-ravan.png" alt=""
+							<a href="about.html" class="author"
+								><span class="name">Ravan Fataliyev</span><img src="assets/images/photo-ravan.png" alt=""
 							/></a>
 						</div>
 					</header>
 
-					<p class="g2048-playing-as-line">
+					<p class="g2048-playing-as-line" id="g2048-playing-as-line">
 						Playing as: <strong id="g2048-playing-as">—</strong>
 						<button type="button" class="button small g2048-inline-btn" id="g2048-change-name">Change name</button>
 					</p>
@@ -143,9 +143,9 @@
 							</div>
 
 							<p class="g2048-help">
-								Use <strong>arrow keys</strong> (or <strong>swipe</strong> on mobile). Your score is sent to the
-								leaderboard automatically after moves (throttled) and when the game ends. Use
-								<strong>Save score</strong> to push your current score immediately.
+								Use <strong>arrow keys</strong> (or <strong>swipe</strong> on mobile). Identical tiles merge; each
+								move adds a new tile. Reach <strong>2048</strong> to win. With Firebase set up in
+								<code>assets/js/firebase-config.js</code>, your name and score sync to the live leaderboard.
 							</p>
 						</section>
 
@@ -180,7 +180,7 @@
 
 					<footer>
 						<ul class="stats">
-							<li><a href="/projects.html">SITE 1101</a></li>
+							<li><a href="projects.html">SITE 1101</a></li>
 						</ul>
 					</footer>
 				</article>
@@ -214,13 +214,13 @@
 
 		<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-database-compat.js"></script>
-		<script src="/assets/js/firebase-config.js"></script>
-		<script src="/assets/js/jquery.min.js"></script>
-		<script src="/assets/js/browser.min.js"></script>
-		<script src="/assets/js/breakpoints.min.js"></script>
-		<script src="/assets/js/util.js"></script>
-		<script src="/assets/js/main.js"></script>
-		<script src="/assets/js/game-2048.js"></script>
-		<script src="/assets/js/leaderboard.js"></script>
+		<script src="assets/js/firebase-config.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/game-2048.js"></script>
+		<script src="assets/js/leaderboard.js"></script>
 	</body>
 </html>
